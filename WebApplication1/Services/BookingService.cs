@@ -61,6 +61,7 @@ namespace WebApplication1.Services
                 //           .Where(b => (b.CheckOut >= bookedDate.CheckOut && b.CheckIn <= bookedDate.CheckIn) || (b.CheckOut >= bookedDate.CheckIn && b.CheckOut <= bookedDate.CheckOut) || (b.CheckIn >= bookedDate.CheckIn && b.CheckIn <= bookedDate.CheckOut))
                 //           .FirstOrDefaultAsync()
 
+
                 if (wrong is not null)
                 {
                     return false;
