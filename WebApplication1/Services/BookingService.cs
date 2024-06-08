@@ -56,6 +56,10 @@ namespace WebApplication1.Services
                            .Where(b => b.CheckOut >= bookedDate.CheckIn && b.CheckOut <= bookedDate.CheckOut)
                            .Where(b => b.CheckIn >= bookedDate.CheckIn && b.CheckIn <= bookedDate.CheckOut)
                            .FirstOrDefaultAsync();
+                //await _db.BookedDates
+                //           .Where(b => b.RoomId == bookedDate.RoomId)
+                //           .Where(b => (b.CheckOut >= bookedDate.CheckOut && b.CheckIn <= bookedDate.CheckIn) || (b.CheckOut >= bookedDate.CheckIn && b.CheckOut <= bookedDate.CheckOut) || (b.CheckIn >= bookedDate.CheckIn && b.CheckIn <= bookedDate.CheckOut))
+                //           .FirstOrDefaultAsync()
 
                 if (wrong is not null)
                 {
@@ -63,7 +67,7 @@ namespace WebApplication1.Services
                 }
 
                 var newBookedDate = _mapper.Map<Booking>(bookedDate);
-                newBookedDate.UserId = userId;
+                newBookedDate.UserId = "7e72bda6-a31b-4b70-8485-0510a14c368b";
                 await _db.BookedDates.AddAsync(newBookedDate);
 
                 var result = await _db.SaveChangesAsync();

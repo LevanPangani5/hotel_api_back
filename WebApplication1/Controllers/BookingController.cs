@@ -26,7 +26,7 @@ namespace WebApplication1.Controllers
 
             return Ok(await _bookingService.GetAll(userId!,isAdmin));
         }
-
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Add([FromBody] BookingAddDto booking)
         {
